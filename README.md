@@ -1,1 +1,1 @@
-# Hand-Tec
+# Hand-TEc
