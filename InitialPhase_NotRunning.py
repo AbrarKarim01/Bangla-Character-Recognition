@@ -1,8 +1,6 @@
 import cv2
-import os
 
 from cvzone.HandTrackingModule import HandDetector
-
 # Parameters
 width, height = 1280, 720
 gestureThreshold = 300
