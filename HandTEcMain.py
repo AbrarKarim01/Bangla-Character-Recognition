@@ -33,7 +33,7 @@ while True:
                 cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # getting pixel value from center
                 print(id, img, LandMark)
 
-    mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
+            mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
 
     # FrameRate
     cTime = time.time()
