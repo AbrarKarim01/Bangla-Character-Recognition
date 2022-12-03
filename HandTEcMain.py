@@ -25,20 +25,19 @@ while True:
     # Checking multiple hands
     if results.multi_hand_landmarks:
 
-    # extracting multiple hands
-     for handLandmarks in results.multi_hand_landmarks:
-
-        for id, LandMark in enumerate(handLandmarks.landmark):  # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
-         h, w, c= img.shape  # give width and height
-         cx, cy = int(LandMark.x*w), int(LandMark.y*h)  # getting pixel value from center
-         print(id, img, LandMark)
-
+        # extracting multiple hands
+        for handLandmarks in results.multi_hand_landmarks:
+            # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
+            for id, LandMark in enumerate(handLandmarks.landmark):
+                h, w, c = img.shape  # give width and height
+                cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # getting pixel value from center
+                print(id, img, LandMark)
 
     mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
 
     # FrameRate
     cTime = time.time()
-    fps = 1/(cTime-pTime)
+    fps = 1 / (cTime - pTime)
     pTime = cTime
 
     cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (250, 0, 255), 3)  # showing frameRate
