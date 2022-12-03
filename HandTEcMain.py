@@ -28,12 +28,11 @@ while True:
 
     if results.multi_hand_landmarks:
             # extracting multiple hands
-        for handLandmarks in results.multi_hand_landmarks:
-            # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
-        for id, LandMark in enumerate(handLandmarks.landmark):
-            h, w, c= img.shape
-            cx, cy = int(LandMark.x * w), int(LandMark.y * h)
-            print(img, LandMark)
+     for handLandmarks in results.multi_hand_landmarks:
+        for id, LandMark in enumerate(handLandmarks.landmark):  # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
+         h, w, c= img.shape
+         cx, cy = int(LandMark.x * w), int(LandMark.y * h)
+         print(img, LandMark)
 
 
         mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
