@@ -31,7 +31,10 @@ while True:
             for id, LandMark in enumerate(handLandmarks.landmark):
                 h, w, c = img.shape  # give width and height
                 cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # getting pixel value from center
-                print(id, img, LandMark)
+                print("Id:", id, "X:", cx, "Y:", cy)
+
+                if id == 4:  # Detecting landmark for 4
+                    cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
 
             mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
 
