@@ -7,14 +7,12 @@ import time
 
 
 # Objects
-
 cap = cv2.VideoCapture(0)  # opening a default camera
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()  # creating object with library default parameter
 mpDraw = mp.solutions.drawing_utils  # drawing landmarks of 21 points with methods
 
 # FrameRate
-
 pTime = 0
 Ctime = 0
 
@@ -25,17 +23,18 @@ while True:
     results = hands.process(imgRGB)  # process the frame by receiving the object
 
     # Checking multiple hands
-
     if results.multi_hand_landmarks:
-            # extracting multiple hands
+
+    # extracting multiple hands
      for handLandmarks in results.multi_hand_landmarks:
+
         for id, LandMark in enumerate(handLandmarks.landmark):  # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
-         h, w, c= img.shape
-         cx, cy = int(LandMark.x * w), int(LandMark.y * h)
-         print(img, LandMark)
+         h, w, c= img.shape  # give width and height
+         cx, cy = int(LandMark.x*w), int(LandMark.y*h)  # getting pixel value from center
+         print(id, img, LandMark)
 
 
-        mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
+    mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
 
     # FrameRate
     cTime = time.time()
