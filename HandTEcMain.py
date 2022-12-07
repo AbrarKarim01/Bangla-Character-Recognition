@@ -30,10 +30,10 @@ while True:
             # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
             for id, LandMark in enumerate(handLandmarks.landmark):
                 h, w, c = img.shape  # give width, height and channels
-                cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # position of height, weight pixel value from center
-                print("Id:", id, "X:", cx, "Y:", cy)
+                cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * 1000)  # position of height, weight pixel value from center
+                print("Id:", id, "X:", cx, "Y:", cy, "Z:", cz)
 
-                if id == 4:  # Detecting landmark for 4
+                if id == 8 :  # Detecting landmark for 4
                     cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
 
             mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
@@ -43,6 +43,6 @@ while True:
     fps = 1 / (cTime - pTime)
     pTime = cTime
 
-    cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (250, 0, 255), 3)  # showing frameRate
+    cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (250, 0, 255), 3)
     cv2.imshow("Image", img)  # capturing the image as video
     cv2.waitKey(1)  # capturing the frame rate
