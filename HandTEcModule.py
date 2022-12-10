@@ -8,15 +8,16 @@ import time
 # class for calling
 # without calling the list
 class handDetector():
-    def __init__(self, mode=False, maxHands=2, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=2, model_complexity=1,  detectionCon=0.5, trackCon=0.5):
         # variable of the object
         self.mode = mode
         self.maxHands = maxHands
         self.detectionCon = detectionCon
         self.trackCon = trackCon
+        self.model_complexity = model_complexity
 
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.detectionCon,
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.model_complexity, self.detectionCon,
                                         self.trackCon)  # creating object with library default parameter
         self.mpDraw = mp.solutions.drawing_utils  # drawing landmarks of 21 points with methods
 
