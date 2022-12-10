@@ -1,12 +1,12 @@
 import time
-import mediapipe
+import mediapipe as mp
 import cv2
 import HandTEcModule as htm
 
 pTime = 0
 cTime = 0
 cap = cv2.VideoCapture(0)
-detector = htm.handDetector()
+detector = htm.handDetector()  # specific
 while True:
     success, img = cap.read()
     img = detector.findHands(img, draw=True)
