@@ -1,14 +1,11 @@
-# Building Module for using this for another project
-# import by installing packages:
 import cv2
 import mediapipe as mp
 import time
 
+# class for calling the module
 
-# class for calling
-# without calling the list
 class handDetector():
-    def __init__(self, mode=False, maxHands=2, model_complexity=1,  detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=1, model_complexity=1, detectionCon=0.5, trackCon=0.5):
         # variable of the object
         self.mode = mode
         self.maxHands = maxHands
@@ -29,52 +26,54 @@ class handDetector():
 
         # Checking multiple hands
         if self.results.multi_hand_landmarks:
-
-            for handLandmarks in self.results.multi_hand_landmarks:
+            for handLandMarks in self.results.multi_hand_landmarks:
                 if draw:
-                    self.mpDraw.draw_landmarks(img, handLandmarks,
+                    self.mpDraw.draw_landmarks(img, handLandMarks,
                                                self.mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
-                return img
+        return img
 
-    def findPosition(self, img, handNo=0,
-                     draw=True):  # checking index by finding id and LandMarks information by Using X, Y, channel Coordinates
+    def findPosition(self, img, handNo=0, draw=True):  # checking index by finding id and LandMarks information by Using X, Y, channel Coordinates
+
         LandMarkList = []
-
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]
-
             for id, LandMark in enumerate(myHand.landmark):
+                # print(id, lm)
                 h, w, c = img.shape  # give width, height and channels
-                cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # position of height, width pixel value from center
-                LandMarkList.append([id, cx, cy])
-                if draw:
-                    cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
-                return LandMarkList
+                cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * w)  # position of height, width pixel value from center
+                # print(id, cx, cy)
+                LandMarkList.append(['Id:', id, 'X: ', cx, 'Y: ', cy, 'Z: ', cz])
 
+                if id == 8 :  # Detecting landmark for 4
+                    cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
+                if draw:
+                    cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
+
+        return LandMarkList
 
 # Dummy
 def main():
-    # FrameRate
-
     pTime = 0
-
+    cTime = 0
     cap = cv2.VideoCapture(0)  # opening a default camera
     detector = handDetector()  # creating object
-    # Running a webCam
     while True:
         success, img = cap.read()  # capturing the frame rate
         img = detector.findHands(img)  # method under class
-        LandMarkList = detector.findPosition(img)
+        LandMarkList = detector.findPosition(img)  # printing a specific landmark
         if len(LandMarkList) != 0:
-            print(LandMarkList[4])  # printing a specific landmark
+            print(LandMarkList[1])
+
         # FrameRate
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
 
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (250, 0, 255), 3)  # showing frameRate
+        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
+                    (255, 0, 255), 3)  # showing frameRate
+
         cv2.imshow("Image", img)  # capturing the image as video
-        cv2.waitKey(1)  # capturing the frame rate
+        cv2.waitKey(1)  # capturing the video
 
 
 if __name__ == "__main__":
