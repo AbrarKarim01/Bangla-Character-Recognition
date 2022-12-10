@@ -41,9 +41,8 @@ class handDetector():
                 # print(id, lm)
                 h, w, c = img.shape  # give width, height and channels
                 cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * w)  # position of height, width pixel value from center
-                # print(id, cx, cy)
-                LandMarkList.append(['Id:', id, 'X: ', cx, 'Y: ', cy, 'Z: ', cz])
-
+                print("Id: ", id, " X:", cx, " Y:", cy, " Z:", cz)
+                #LandMarkList.append(['Id:', id, 'X: ', cx, 'Y: ', cy, 'Z: ', cz]) #  call when used
                 if id == 8 :  # Detecting landmark for 4
                     cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
                 if draw:
@@ -62,7 +61,7 @@ def main():
         img = detector.findHands(img)  # method under class
         LandMarkList = detector.findPosition(img)  # printing a specific landmark
         if len(LandMarkList) != 0:
-            print(LandMarkList[1])
+            print(LandMarkList[0])
 
         # FrameRate
         cTime = time.time()
