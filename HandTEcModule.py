@@ -2,10 +2,11 @@ import cv2
 import mediapipe as mp
 import time
 
+
 # class for calling the module
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=1, model_complexity=1, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=1, model_complexity=0, detectionCon=0.5, trackCon=0.5):
         # variable of the object
         self.mode = mode
         self.maxHands = maxHands
@@ -32,7 +33,8 @@ class handDetector():
                                                self.mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
         return img
 
-    def findPosition(self, img, handNo=0, draw=True):  # checking index by finding id and LandMarks information by Using X, Y, channel Coordinates
+    def findPosition(self, img, handNo=0,
+                     draw=True):  # checking index by finding id and LandMarks information by Using X, Y, channel Coordinates
 
         LandMarkList = []
         if self.results.multi_hand_landmarks:
@@ -40,17 +42,18 @@ class handDetector():
             for id, LandMark in enumerate(myHand.landmark):
                 # print(id, lm)
                 h, w, c = img.shape  # give width, height and channels
-                cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * w)  # position of height, width pixel value from center
-                print("Id: ", id, " X:", cx, " Y:", cy, " Z:", cz)
+                cx, cy = int(LandMark.x * w), int(LandMark.y * h)  # position of height, width pixel value from center
 
-                #LandMarkList.append(['Id:', id, 'X: ', cx, 'Y: ', cy, 'Z: ', cz]) #  call when used for printing
+                LandMarkList.append([id, cx, cy])  # call when used for printing
 
-                if id == 8:  # Detecting landmark for 4
-                    cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
+                # if id == 8:  # Detecting a landmark as a point
+                # cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
+
                 if draw:
-                    cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (cx, cy), 38, (255, 0, 255), cv2.FILLED)
 
         return LandMarkList
+
 
 # Dummy
 def main():
@@ -63,7 +66,7 @@ def main():
         img = detector.findHands(img)  # method under class
         LandMarkList = detector.findPosition(img)  # printing a specific landmark
         if len(LandMarkList) != 0:
-            print(LandMarkList[0])
+            print(LandMarkList[8])  # defining a specific landmark
 
         # FrameRate
         cTime = time.time()
