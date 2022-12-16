@@ -50,7 +50,7 @@ class handDetector():
                 # cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
 
                 if draw:
-                    cv2.circle(img, (cx, cy), 38, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (cx, cy), 24, (255, 0, 255), cv2.FILLED)
 
         return LandMarkList
 
@@ -78,6 +78,8 @@ def main():
 
         cv2.imshow("Image", img)  # capturing the image as video
         cv2.waitKey(1)  # capturing the video
+
+
 
 
 if __name__ == "__main__":
