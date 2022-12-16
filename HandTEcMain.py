@@ -33,7 +33,7 @@ while True:
                 cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * w)  # position of height, weight pixel value from center
                 print("Id:", id, "X:", cx, "Y:", cy, "Z:", cz)
 
-                if id == 8 :  # Detecting landmark for 4
+                if id == 8:  # Detecting landmark for 4
                     cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
 
             mpDraw.draw_landmarks(img, handLandmarks, mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
