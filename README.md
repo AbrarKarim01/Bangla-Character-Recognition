@@ -3,28 +3,27 @@
 ## Hand Tracking with Depth
 
 
-In this project we are going to build an AI system which will be using the live feed coming from the webcam to create a virtual mouse using hand tracking.
+In this project we are going to build an AI system which will be using the live feed coming from the webcam and check the trace and depth using virtual painting.
 
 
 ## Features
 
 
-- Hand Tracking
-- Virtual Mouse
+- Hand Tracking with depth
 - Virtual Drawing
 
 
 ## Project Description
 
-In this project we are going to use our hand to track virtually as a mouse without any physical system. We are going to use our WebCam for detection of one of our hands. It will then create a bounding box around my hand and focus on two fingers: The first finger and the middle finger. The first finger will act as a cursor and moving it around, we will be moving the cursor around. Now, inorder to successfully click using hand tracking, it is detecting the distance between the fore finger and the middle finger. If they are joined together, then it will perform a click.
-
+We demonstrate a research on depth real-time hand tracking system. It accurately and quickly tracks a fully articulated hand at high frame rates (30 FPS on a desktop without a GPU) (error below 45-50 mm). To optimize and test the process we have used PSO local optimizer and to observe accuracy and usage we used gesture model and as a virtual painting tool.
+Our system is built using numerous methods. With the use of several spheres, we model a hand quickly and efficiently. In order to perform in real time, those are essential. 
 
 ## Requirements
 
 
 - [OpenCv] - OpenCV provides a real-time optimized Computer Vision library, tools, and hardware.
 - [Mediapipe] - MediaPipe offers open source cross-platform, customizable ML solutions for live and streaming media.
-- [Pyautogui] - PyAutoGUI lets your Python scripts control the mouse and keyboard to automate interactions with other applications.
+- [Pyswarms] - PSO, Particle Swarm Optimizer, Local Optimizer.
 
 
 ## Installation
