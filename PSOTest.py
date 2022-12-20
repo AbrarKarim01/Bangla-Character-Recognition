@@ -8,7 +8,7 @@ from pyswarms.utils.functions import single_obj as fx
 # class for calling the module
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=1, model_complexity=0, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=1, model_complexity=0, detectionCon=0.8, trackCon=0.8):
         # variable of the object
         self.mode = mode
         self.maxHands = maxHands

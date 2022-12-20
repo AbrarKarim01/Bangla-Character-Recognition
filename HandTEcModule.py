@@ -6,7 +6,7 @@ import time
 # class for calling the module
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=1, model_complexity=0, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=1, model_complexity=0, detectionCon=0.8, trackCon=0.8):
         # variable of the object
         self.mode = mode
         self.maxHands = maxHands
@@ -21,16 +21,16 @@ class handDetector():
 
     # class for finding hand and landmarks
     def findHands(self, img, draw=True):
+        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        self.results = self.hands.process(imgRGB)
+        # print(results.multi_hand_landmarks)
 
-        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # convert to RGB ( hand class only support RGB )
-        self.results = self.hands.process(imgRGB)  # process the frame by receiving the object
-
-        # Checking multiple hands
         if self.results.multi_hand_landmarks:
-            for handLandMarks in self.results.multi_hand_landmarks:
+            for handLms in self.results.multi_hand_landmarks:
                 if draw:
-                    self.mpDraw.draw_landmarks(img, handLandMarks,
-                                               self.mpHands.HAND_CONNECTIONS)  # drawing the landmarks with lines
+                    self.mpDraw.draw_landmarks(img, handLms,
+                                               self.mpHands.HAND_CONNECTIONS)
+
         return img
 
     def findPosition(self, img, handNo=0,
