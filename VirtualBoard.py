@@ -4,10 +4,10 @@ import os
 import HandTEcGestureModule as htm
 
 ###########################
-brushThickness = 25
+brushThickness = 10
 eraserThickness = 50
 ##########################
-
+counter= 0
 folderPath = "Header"
 myList = os.listdir(folderPath)
 print(myList)
@@ -51,7 +51,7 @@ while True:
         if fingers[1] and fingers[2]:
             # xp, yp = 0, 0
 
-            print("Drawing Mode  ", "X: ", x2, "Y: ", y2)
+            print("Selection Mode  ", "X: ", x2, "Y: ", y2)
             # Checking for the click
             if y1 < 125:
                 if 300 < x1 < 500:
@@ -73,6 +73,9 @@ while True:
         if fingers[1] and fingers[2] == False:
             cv2.circle(img, (x1, y1), 25, drawColor, cv2.FILLED)
             print("Drawing Mode  ", "X: ", x1, "Y: ", y1)
+
+            counter = counter + 1
+            print(counter)
             if xp == 0 and yp == 0:
                 xp, yp = x1, y1
 
@@ -84,7 +87,6 @@ while True:
                 cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)
 
         xp, yp = x1, y1
-
     imgGray = cv2.cvtColor(imgCanvas, cv2.COLOR_BGR2GRAY)
     _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
     imgInv = cv2.cvtColor(imgInv, cv2.COLOR_GRAY2BGR)
