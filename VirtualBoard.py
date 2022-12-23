@@ -51,7 +51,7 @@ while True:
         if fingers[1] and fingers[2]:
             # xp, yp = 0, 0
 
-            print("Selection Mode", x2, y2)
+            print("Drawing Mode  ", "X: ", x2, "Y: ", y2)
             # Checking for the click
             if y1 < 125:
                 if 300 < x1 < 500:
@@ -72,7 +72,7 @@ while True:
     # 5. If Drawing Mode - Index finger is up
         if fingers[1] and fingers[2] == False:
             cv2.circle(img, (x1, y1), 25, drawColor, cv2.FILLED)
-            print("Drawing Mode", x1, y1)
+            print("Drawing Mode  ", "X: ", x1, "Y: ", y1)
             if xp == 0 and yp == 0:
                 xp, yp = x1, y1
 
