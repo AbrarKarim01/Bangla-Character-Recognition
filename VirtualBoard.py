@@ -65,7 +65,7 @@ while True:
                     drawColor = (144, 128, 128)
                 elif 1075 < x1 < 1250:
                     header = overlayList[3]
-                    drawColor = (140, 128, 0)
+                    drawColor = (0, 0, 0)
             cv2.rectangle(img, (x1, y1 - 25), (x2, y2 + 25), drawColor, cv2.FILLED)
 
 
@@ -76,7 +76,7 @@ while True:
             if xp == 0 and yp == 0:
                 xp, yp = x1, y1
 
-            if drawColor == (140, 128, 0):
+            if drawColor == (0, 0, 0):
                 cv2.line(img, (xp, yp), (x1, y1), drawColor, eraserThickness)
                 cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, eraserThickness)
             else:
