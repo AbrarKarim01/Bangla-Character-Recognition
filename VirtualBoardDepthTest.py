@@ -4,7 +4,7 @@ import os
 import HandTEcGestureModule as htm
 
 ###########################
-brushThickness = 2
+brushThickness = 3
 eraserThickness = 50
 ##########################
 counter= 0
