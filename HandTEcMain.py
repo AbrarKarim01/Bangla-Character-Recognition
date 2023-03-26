@@ -30,7 +30,7 @@ while True:
             # checking index by finding id and LandMarks information by Using X, Y, Z Coordinates
             for id, LandMark in enumerate(handLandmarks.landmark):
                 h, w, c = img.shape  # give width, height and channels
-                cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int(LandMark.z * w)  # position of height, weight pixel value from center
+                cx, cy, cz = int(LandMark.x * w), int(LandMark.y * h), int (LandMark.z * w)  # position of height, weight pixel value from center
                 print("Id:", id, "X:", cx, "Y:", cy, "Z:", cz)
 
                 if id == 8:  # Detecting landmark for 4

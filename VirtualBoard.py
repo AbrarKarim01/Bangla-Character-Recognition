@@ -4,7 +4,7 @@ import os
 import HandTEcGestureModule as htm
 
 ###########################
-brushThickness = 10
+brushThickness = 2
 eraserThickness = 50
 ##########################
 counter= 0
@@ -20,8 +20,8 @@ header = overlayList[0]
 drawColor = (119, 207, 157)
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
+cap.set(3, 1920)
+cap.set(4, 1080)
 
 detector = htm.handDetector(detectionCon=0.65, maxHands=1)
 xp, yp = 0, 0
