@@ -2,7 +2,7 @@
 ## Bangla-Character-Recognition
 
 
-In this project, we are going to build an AI system that will use the live feed coming from the webcam and check the trace and depth using virtual painting.
+In this project, we are going to build an AI system that will use the live feed coming from the webcam and check the trace and depth using virtual painting. It will track the 
 
 
 ## Features
@@ -10,11 +10,12 @@ In this project, we are going to build an AI system that will use the live feed 
 
 - Hand Tracking with depth
 - Virtual Drawing
+- Bangla Character Recognition
 
 
 ## Project Description
 
-We demonstrate research on depth real-time hand tracking systems. It accurately and quickly tracks a fully articulated hand at high frame rates (30 FPS on a desktop without a GPU) (error below 45-50 mm). To optimize and test the process we have used PSO local optimizer and to observe accuracy and usage we used a gesture model as a virtual painting tool.
+We demonstrate research on depth real-time hand tracking systems. It accurately and quickly tracks a fully articulated hand at high frame rates (30 FPS on a desktop without a GPU) (error below 45-50 mm). To optimize and test the process we have used PSO local optimizer and to observe accuracy and usage we used a gesture model (Virtually drawn Bangla  Characters) as a virtual painting tool. 
 Our system is built using numerous methods. With the use of several spheres, we model a hand quickly and efficiently. In order to perform in real-time, those are essential. 
 
 ## Requirements
