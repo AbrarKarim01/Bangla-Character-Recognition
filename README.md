@@ -1,6 +1,3 @@
-# Hand-TEc
-
-A depth real-time hand tracking system accurately tracks a fully articulated hand at high frame rates (30 FPS on a desktop without a GPU). The system uses PSO local optimizer, gesture model, and virtual painting tool for efficient real-time performance.
 
 ## Hand Tracking with Depth
 
