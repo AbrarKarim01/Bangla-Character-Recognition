@@ -2,7 +2,7 @@
 ## Bangla-Character-Recognition
 
 
-In this project, we are going to build an AI system that will use the live feed coming from the webcam and check the trace and depth using virtual painting. It will track the hands and the drawn Bangla Character as an object, recognizing and interpreting the hand-drawn letter in real-time.
+In this project, we are going to build an AI system that will use the live feed coming from the webcam and check the trace and depth of the hand's landmarks coordinates using virtual painting. It will track the hands and the drawn Bangla Character as an object, recognizing and interpreting the hand-drawn letter in real-time.
 
 
 ## Features
