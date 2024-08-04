@@ -1,4 +1,3 @@
-
 ## Bangla-Character-Recognition
 
 
@@ -30,8 +29,8 @@ Our system is built using numerous methods. With the use of several spheres, we 
 - Pycharm - Pycharm is an environment for Python language and it is downloadable from their website.
 - Install the packages under pycharm to start the project.
 
+## Project Outcome
 
-
-
+![Prediction](https://github.com/user-attachments/assets/69adc06c-cbb8-4fc4-a436-32d64ff040a6)
 
 
